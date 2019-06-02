@@ -5,7 +5,6 @@ import ProfileTextbox from './components/profileTextbox'
 import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
 import StatsSingle from "./components/statsSingle"
-require('dotenv').config()
 const github_token = process.env.REACT_APP_GITHUB_TOKEN
 function App() {
   console.log("Using Github Token: ",github_token)
