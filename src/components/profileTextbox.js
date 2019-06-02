@@ -16,17 +16,8 @@ class ProfileTextbox extends Component {
   };
 
   onSubmit = event => {
-    // fetch data
-    // console.log("Submitted", this.state.username)
-    // axios.get('https://api.myjson.com/bins/fsg77')
-    // .then(resp=>{
-    //   console.log(resp)
-    //   this.setState({...this.state, data: resp.data, isFetched:true})
-    // })
-    // .catch(err=>{console.log(err)})
-
     this.setState({showStats:true})
-    console.log("Set state true ")
+    console.log("Changed state showStats to true")
     event.preventDefault();
   };
 
