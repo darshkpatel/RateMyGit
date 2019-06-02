@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
-
+import { collectStats } from "../processData"
 class StatsSingle extends Component {
 
     render() {
         console.log(`Received username `,this.props.username, `from props` )
         if (typeof (this.props.username) != "undefined"){
             return (
+                
                 <Query
                     query={gql`
     {
@@ -20,6 +21,7 @@ class StatsSingle extends Component {
   user(login: ${this.props.username}) {
     name,
     url,
+    login,
     createdAt,
     followers{totalCount},
     repositoriesContributedTo{totalCount}
@@ -29,7 +31,7 @@ class StatsSingle extends Component {
       node{
         forkCount,
         nameWithOwner,
-        issues{totalCount},
+        watchers{totalCount},
         pullRequests{totalCount},
         stargazers{totalCount},
         languages(first:1) {
@@ -49,7 +51,7 @@ class StatsSingle extends Component {
                     {({ loading, error, data }) => {
                         if (loading) return <p>Loading...</p>;
                         if (error) { console.log(error); return <p>Error :(</p>; }
-                        console.log(JSON.stringify(data, null, '\t'))
+                        console.log(JSON.stringify(collectStats(data), null, '\t'))
                         return null
                     }}
                 </Query>

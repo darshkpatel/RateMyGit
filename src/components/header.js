@@ -1,6 +1,5 @@
 import React from 'react';
 import '../App.css';
-import Navbar from 'react-bootstrap/Navbar';
 function Header() {
   return (
 <div className="Header">
