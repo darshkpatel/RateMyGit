@@ -1,13 +1,17 @@
-import React from 'react';
+import React,{Component} from 'react';
 import '../App.css';
-function Header() {
-  return (
-<div className="Header">
-    <h1 className="HeaderHeading">
-      RateMyGit
-    </h1>
-</div>
-  );
+import {Wrapper, Title} from './componentStyles'
+
+class Header extends Component{
+  render(){
+    return(
+      <Wrapper>
+        <Title>
+          Rate My Github
+        </Title>
+      </Wrapper>
+    );
+  }
 }
 
 export default Header;

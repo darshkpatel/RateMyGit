@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import StatsSingle from './statsSingle';
-
-
+import {Form, Input, Button, FormTitle} from './componentStyles';
 class ProfileTextbox extends Component {
   constructor(props){
     super(props);
@@ -25,11 +24,15 @@ class ProfileTextbox extends Component {
       return (
         <React.Fragment>
 
-      <form onSubmit={this.onSubmit}>
-        <label htmlFor="username">
+      <Form onSubmit={this.onSubmit}>
+        {/* <label htmlFor="username">
           GitHub username
-        </label>
-        <input
+        </label> */}
+
+        <FormTitle>
+          Enter your github username to check score
+        </FormTitle>
+        <Input
           id="username"
           type="text"
           onChange={this.onChange}
@@ -37,8 +40,8 @@ class ProfileTextbox extends Component {
           value={this.state.username}
           placeholder="Github Username"
           />
-        <button type="submit">Search</button>
-      </form>
+        <Button type="submit">Search</Button>
+      </Form>
 
       <div>
         {console.log("showStats Var:",this.state.showStats )}
