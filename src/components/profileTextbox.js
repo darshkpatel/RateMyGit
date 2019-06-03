@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import StatsSingle from './statsSingle';
-import {Form, Input, Button, FormTitle} from './componentStyles';
+import InputField from "@kiwicom/orbit-components/lib/InputField";
+import Button from "@kiwicom/orbit-components/lib/Button";
 class ProfileTextbox extends Component {
   constructor(props){
     super(props);
@@ -24,15 +25,15 @@ class ProfileTextbox extends Component {
       return (
         <React.Fragment>
 
-      <Form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit}>
         {/* <label htmlFor="username">
           GitHub username
         </label> */}
 
-        <FormTitle>
+
           Enter your github username to check score
-        </FormTitle>
-        <Input
+
+        <InputField
           id="username"
           type="text"
           onChange={this.onChange}
@@ -40,8 +41,8 @@ class ProfileTextbox extends Component {
           value={this.state.username}
           placeholder="Github Username"
           />
-        <Button type="submit">Search</Button>
-      </Form>
+        <Button submit="true" >Search</Button>
+      </form>
 
       <div>
         {console.log("showStats Var:",this.state.showStats )}
