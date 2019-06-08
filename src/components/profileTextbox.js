@@ -6,16 +6,21 @@ class ProfileTextbox extends Component {
   constructor(props){
     super(props);
     this.state = {
-      username:"",
-      showStats: false
+      textbox_username:"",
+      showStats: false,
+      search_username:""
     };
   }
   onChange = event => {
-    this.setState({ ...this.state, username: event.target.value });
+    this.setState({ ...this.state, textbox_username: event.target.value });
   };
 
   onSubmit = event => {
-    this.setState({showStats:true})
+    this.setState((prevState,Props)=>{
+      return ({showStats:true,
+               search_username:prevState.textbox_username
+              })
+    })
     console.log("Changed state showStats to true")
     event.preventDefault();
   };
@@ -38,7 +43,7 @@ class ProfileTextbox extends Component {
           type="text"
           onChange={this.onChange}
           style={{ width: '300px' }}
-          value={this.state.username}
+          value={this.state.textbox_username}
           placeholder="Github Username"
           />
         <Button submit="true" >Search</Button>
@@ -47,7 +52,7 @@ class ProfileTextbox extends Component {
       <div>
         {console.log("showStats Var:",this.state.showStats )}
         {
-        this.state.showStats===true && <StatsSingle username = {this.state.username} />
+        this.state.showStats===true && <StatsSingle username = {this.state.search_username} />
         }
       </div>
       </React.Fragment>
