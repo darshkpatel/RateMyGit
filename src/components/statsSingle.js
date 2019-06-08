@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import { collectStats } from "../processData"
-import Card, { CardHeader , CardSection } from "@kiwicom/orbit-components/lib/Card";
+import Card, { CardHeader } from "@kiwicom/orbit-components/lib/Card";
 import Table, { TableHead, TableBody, TableRow, TableCell } from "@kiwicom/orbit-components/lib/Table";
-import { stat } from 'fs';
 
 class StatsSingle extends Component {
 
