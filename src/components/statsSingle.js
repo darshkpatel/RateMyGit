@@ -3,8 +3,13 @@ import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import { collectStats } from "../processData"
 import Card, { CardHeader , CardSection } from "@kiwicom/orbit-components/lib/Card";
+import Table, { TableHead, TableBody, TableRow, TableCell } from "@kiwicom/orbit-components/lib/Table";
+import { stat } from 'fs';
 
 class StatsSingle extends Component {
+
+
+
 
     render() {
         console.log(`Received username `,this.props.username, `from props` )
@@ -55,12 +60,88 @@ class StatsSingle extends Component {
                         return(
                           <Card>
                             <CardHeader title = "Your Github Stats "/>
-                            <CardSection>
-                                <span>Followers</span> {stats['followers']}
-                            </CardSection>
-                            <CardSection>
-                                <span>Stars</span> {stats.stars}
-                            </CardSection>
+
+                            <Table compact="true" >
+                              <TableHead>
+                                <TableRow>
+                                  <TableCell>
+                                    Metric
+                                  </TableCell>
+                                  <TableCell>
+                                    Count
+                                  </TableCell>
+                                </TableRow>
+                              </TableHead>
+                              <TableBody>
+
+                                
+                                <TableRow>
+                                  <TableCell>
+                                    Followers
+                                  </TableCell>
+                                  <TableCell>
+                                    {stats['followers']}
+                                  </TableCell>
+                                </TableRow>
+
+                                <TableRow>
+                                  <TableCell>
+                                    Repositories contributed to
+                                  </TableCell>
+                                  <TableCell>
+                                    {stats['repos_contributed']}
+                                  </TableCell>
+                                </TableRow>
+
+                                
+                                <TableRow>
+                                  <TableCell>
+                                    Repositories in profile
+                                  </TableCell>
+                                  <TableCell>
+                                    {stats['total_repos']}
+                                  </TableCell>
+                                </TableRow>
+
+                                <TableRow>
+                                  <TableCell>
+                                    Total Forks of your Repositories
+                                  </TableCell>
+                                  <TableCell>
+                                    {stats['forks']}
+                                  </TableCell>
+                                </TableRow>
+
+                                <TableRow>
+                                  <TableCell>
+                                    Total Stars on your repositories
+                                  </TableCell>
+                                  <TableCell>
+                                    {stats['stars']}
+                                  </TableCell>
+                                </TableRow>
+
+                                <TableRow>
+                                  <TableCell>
+                                    Total Pull Requests on your repositories
+                                  </TableCell>
+                                  <TableCell>
+                                    {stats['prs']}
+                                  </TableCell>
+                                </TableRow>
+
+                                <TableRow>
+                                  <TableCell>
+                                    Total watchers of your repositories
+                                  </TableCell>
+                                  <TableCell>
+                                    {stats['watchers']}
+                                  </TableCell>
+                                </TableRow>
+                      
+
+                              </TableBody>
+                            </Table>
                           </Card>
                         )
                     }}
