@@ -6,20 +6,25 @@ import StatsTable from './statsTable'
 import Card, { CardHeader } from "@kiwicom/orbit-components/lib/Card";
 
 class StatsSingle extends Component {
+
   render() {
-    console.log(`Received username `, this.props.username, `from props`)
+    //Sanity check
     if (typeof (this.props.username) != "undefined") {
+
       return (
-        <Query query={statsQuery} variables={{username:this.props.username}} >
+        //Graphql Query for User Stats
+        <Query query={statsQuery} variables={{ username: this.props.username }} >
           {({ loading, error, data, fetchMore }) => {
-            if (loading) { return <p>Loading...</p>; }
-            if (error) { console.log(JSON.stringify(error)); return <p>Error: {error.graphQLErrors[0].message}</p>; }
+            if (loading) { return <p>Loading...</p>; } // Loader
+            if (error) { console.log(JSON.stringify(error)); return <p>Error: {error.graphQLErrors[0].message}</p>; } //Display Error
             else {
-              const stats = collectStats(data)
-              console.log(JSON.stringify(stats, null, '\t'))
-              return(
+
+              const stats = collectStats(data)// Collect stats form all repos to a dictionary
+              console.log(stats, null, '\t')
+              return (
+                // Stats Card  
                 <Card>
-                  <CardHeader title ={`Github Score for ${stats.name}`} />
+                  <CardHeader title={`Github Score for ${stats.name}`} />
                   <StatsTable stats={stats} />
                 </Card>
               )
@@ -38,8 +43,5 @@ class StatsSingle extends Component {
 
 
 }
-
-
-
 
 export default StatsSingle;
