@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import Card, { CardHeader } from "@kiwicom/orbit-components/lib/Card";
 import Table, { TableHead, TableBody, TableRow, TableCell } from "@kiwicom/orbit-components/lib/Table";
 
 class StatsTable extends Component {
 render(){
 return(
-    <Card>
-      <CardHeader title = "Your Github Stats "/>
-
       <Table compact="true" >
         <TableHead>
           <TableRow>
@@ -79,7 +75,6 @@ return(
 
         </TableBody>
       </Table>
-    </Card>
         )
     }
 }

@@ -3,6 +3,7 @@ import { Query } from "react-apollo";
 import { statsQuery } from "../graphqlQueries"
 import { collectStats } from "../processData"
 import StatsTable from './statsTable'
+import Card, { CardHeader } from "@kiwicom/orbit-components/lib/Card";
 
 class StatsSingle extends Component {
   render() {
@@ -16,7 +17,12 @@ class StatsSingle extends Component {
             else {
               const stats = collectStats(data)
               console.log(JSON.stringify(stats, null, '\t'))
-              return <StatsTable stats={stats} />
+              return(
+                <Card>
+                  <CardHeader title ={`Github Score for ${stats.name}`} />
+                  <StatsTable stats={stats} />
+                </Card>
+              )
             }
           }
           }
