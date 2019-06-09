@@ -31,15 +31,9 @@ export const contributionsQuery = (username,from,to) => gql`
 
 `
 
-export const statsQuery = (username) =>  gql`
-{
-rateLimit {
-limit
-cost
-remaining
-resetAt
-}
-user(login: ${username}) {
+export const statsQuery = gql`
+query User($username: String!) {
+user(login: $username) {
 name,
 url,
 login,
@@ -64,6 +58,12 @@ repositories(first:100 ){
      }
       }
  }
+}
+rateLimit {
+limit
+cost
+remaining
+resetAt
 }
 }
 `

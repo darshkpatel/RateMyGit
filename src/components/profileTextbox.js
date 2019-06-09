@@ -5,29 +5,47 @@ import Button from "@kiwicom/orbit-components/lib/Button";
 class ProfileTextbox extends Component {
   constructor(props){
     super(props);
-    this.displayElements = [];
+    
+    
     this.state = {
       textbox_username:"",
       showElements: this.displayElements,
       search_username:""
     };
-
+    
+    this.displayElements = [];
     this.onSubmit = this.onSubmit.bind(this);
   }
   onChange = event => {
     this.setState({ textbox_username: event.target.value });
   };
-
+  
   onSubmit = event => {
     event.preventDefault();
-
-    const usernameRegex = /((?!.*(-){2,}.*)[a-z0-9][a-z0-9-]{0,38}[a-z0-9])/ig;
-
+    const usernameRegex = /^([a-z\d]+-)*[a-z\d]+$/ig; //Regex for valid github username
+    
+    //Removes Existing 'Invalid Username' error if present 
+    this.displayElements = this.displayElements.filter((obj)=>obj.key!=="invalid_err")
+    
+    //Check if github username is valid 
     if(usernameRegex.test(this.state.textbox_username)){
+
+      //Pushes Stats Component to display if user isn't already displayed
+      if(!this.displayElements.some((obj)=>obj.key===this.state.textbox_username))
       this.displayElements.push(<StatsSingle username = {this.state.textbox_username} key={this.state.textbox_username}/>)
-      this.setState({showElements:this.displayElements})
-      console.log(this.displayElements)
+    
     }
+
+    else{ // If Username is invalid
+    
+      //Pushes Error Component
+      this.displayElements.push(
+      <React.Fragment key="invalid_err">
+      <p>Username {this.state.textbox_username} is not a valid github username </p>
+      </React.Fragment>
+      )
+    }
+    this.setState({showElements:this.displayElements})
   };
 
     render() {

@@ -9,7 +9,7 @@ class StatsSingle extends Component {
     console.log(`Received username `, this.props.username, `from props`)
     if (typeof (this.props.username) != "undefined") {
       return (
-        <Query query={statsQuery(this.props.username)} >
+        <Query query={statsQuery} variables={{username:this.props.username}} >
           {({ loading, error, data, fetchMore }) => {
             if (loading) { return <p>Loading...</p>; }
             if (error) { console.log(JSON.stringify(error)); return <p>Error: {error.graphQLErrors[0].message}</p>; }
