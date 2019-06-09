@@ -2,7 +2,6 @@
 export function collectStats(data) {
     var processed_obj = {}
     processed_obj['followers'] = data.user.followers.totalCount
-    processed_obj['repos_contributed'] = data.user.repositoriesContributedTo.totalCount
     processed_obj['total_repos'] = data.user.repositories.totalCount
     processed_obj = {...processed_obj, ...data.user.repositories.edges.reduce((acc, obj) => {
         return {
