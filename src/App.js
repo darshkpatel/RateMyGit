@@ -7,7 +7,6 @@ import ApolloClient from "apollo-boost";
 import StatsSingle from "./components/statsSingle"
 const github_token = process.env.REACT_APP_GITHUB_TOKEN
 function App() {
-  console.log("Using Github Token: ",github_token)
   const client = new ApolloClient({
      uri: "https://api.github.com/graphql",
      request: operation => {
