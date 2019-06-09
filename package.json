@@ -2,6 +2,7 @@
   "name": "ratemygithub",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://darshkpatel.github.io/RateMyGithub/",
   "dependencies": {
     "@kiwicom/orbit-components": "^0.45.0",
     "apollo-boost": "^0.4.0",
