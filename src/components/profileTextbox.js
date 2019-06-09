@@ -54,13 +54,7 @@ class ProfileTextbox extends Component {
         <React.Fragment>
 
       <form onSubmit={this.onSubmit}>
-        {/* <label htmlFor="username">
-          GitHub username
-        </label> */}
-
-
           Enter your github username to check score
-
         <InputField
           id="username"
           type="text"
