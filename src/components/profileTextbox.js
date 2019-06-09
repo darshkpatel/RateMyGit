@@ -5,24 +5,29 @@ import Button from "@kiwicom/orbit-components/lib/Button";
 class ProfileTextbox extends Component {
   constructor(props){
     super(props);
+    this.displayElements = [];
     this.state = {
       textbox_username:"",
-      showStats: false,
+      showElements: this.displayElements,
       search_username:""
     };
+
+    this.onSubmit = this.onSubmit.bind(this);
   }
   onChange = event => {
-    this.setState({ ...this.state, textbox_username: event.target.value });
+    this.setState({ textbox_username: event.target.value });
   };
 
   onSubmit = event => {
-    this.setState((prevState,Props)=>{
-      return ({showStats:true,
-               search_username:prevState.textbox_username
-              })
-    })
-    console.log("Changed state showStats to true")
     event.preventDefault();
+
+    const usernameRegex = /((?!.*(-){2,}.*)[a-z0-9][a-z0-9-]{0,38}[a-z0-9])/ig;
+
+    if(usernameRegex.test(this.state.textbox_username)){
+      this.displayElements.push(<StatsSingle username = {this.state.textbox_username} key={this.state.textbox_username}/>)
+      this.setState({showElements:this.displayElements})
+      console.log(this.displayElements)
+    }
   };
 
     render() {
@@ -50,10 +55,7 @@ class ProfileTextbox extends Component {
       </form>
 
       <div>
-        {console.log("showStats Var:",this.state.showStats )}
-        {
-        this.state.showStats===true && <StatsSingle username = {this.state.search_username} />
-        }
+        {this.displayElements}
       </div>
       </React.Fragment>
       );

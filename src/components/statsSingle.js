@@ -12,7 +12,7 @@ class StatsSingle extends Component {
         <Query query={statsQuery(this.props.username)} >
           {({ loading, error, data, fetchMore }) => {
             if (loading) { return <p>Loading...</p>; }
-            if (error) { console.log(error); return <p>Error: {error}</p>; }
+            if (error) { console.log(JSON.stringify(error)); return <p>Error: {error.graphQLErrors[0].message}</p>; }
             else {
               const stats = collectStats(data)
               console.log(JSON.stringify(stats, null, '\t'))
