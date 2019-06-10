@@ -4,7 +4,6 @@ import Header from './components/header'
 import ProfileTextbox from './components/profileTextbox'
 import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
-import StatsSingle from "./components/statsSingle"
 const github_token = process.env.REACT_APP_GITHUB_TOKEN
 function App() {
   const client = new ApolloClient({
@@ -21,8 +20,7 @@ function App() {
   return (
 <ApolloProvider client={client}>
     <Header />
-    <ProfileTextbox />
-    <StatsSingle />
+    <ProfileTextbox htmlClass="Body"/>
 </ApolloProvider>
   );
 }
