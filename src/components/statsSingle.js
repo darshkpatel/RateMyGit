@@ -18,7 +18,7 @@ class StatsSingle extends Component {
             if (loading) { 
               console.log(loading);
                return(
-                <Card title={`Github Score for ${this.props.username}`} bordered={false} style={{ width: 300 }} loading={true}/>
+                <Card title={`Github Score for "${this.props.username}"`} bordered={true} loading={true}/>
             )
             } // Loader
             if (error) { console.log(JSON.stringify(error)); return <p>Error: {error.graphQLErrors[0].message}</p>; } //Display Error
@@ -28,7 +28,7 @@ class StatsSingle extends Component {
               console.log(stats, null, '\t')
               return (
                 // Stats Card  
-                <Card title={`Github Score for ${stats.name}`} bordered={false} style={{ width: 300 }}>
+                <Card title={`Github Score for ${stats.name} ( ${this.props.username} )`} bordered={true}>
                   <StatsTable stats={stats} />
                 </Card>
               )
