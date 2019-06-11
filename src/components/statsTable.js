@@ -1,82 +1,66 @@
 import React, { Component } from 'react';
-import Table, { TableHead, TableBody, TableRow, TableCell } from "@kiwicom/orbit-components/lib/Table";
+import {Table} from "antd";
 
 class StatsTable extends Component {
+constructor(props){
+
+  super(props);
+  
+    //Data for table 
+    const columns = [
+      {
+        title: 'Metric',
+        dataIndex: 'metric',
+      },
+      {
+        title: 'Value',
+        dataIndex: 'value',
+      },
+    ];
+  
+    const data = [
+      {
+        key: '1',
+        metric: 'Followers',
+        value:props.stats['followers'] 
+      },
+      {
+        key: '2',
+        metric: 'Public Repositories',
+        value:props.stats['total_repos'] 
+      },
+      {
+        key: '3',
+        metric: 'Total Forks on repositories',
+        value:props.stats['forks'] 
+      },
+      {
+        key: '4',
+        metric: 'Total Stars on repositories',
+        value:props.stats['stars'] 
+      },
+      {
+        key: '5',
+        metric: 'Total Pull Requests on repositories',
+        value:props.stats['prs'] 
+      },
+      {
+        key: '6',
+        metric: 'Total watchers of repositories',
+        value:props.stats['watchers'] 
+      },
+    ];
+
+    this.state={columns:columns,data:data}
+  }
+
 render(){
 return(
-      <Table compact="true" >
-        <TableHead>
-          <TableRow>
-            <TableCell>
-              Metric
-            </TableCell>
-            <TableCell>
-              Count
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-
-          
-          <TableRow>
-            <TableCell>
-              Followers
-            </TableCell>
-            <TableCell>
-              {this.props.stats['followers']}
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              Repositories in profile
-            </TableCell>
-            <TableCell>
-              {this.props.stats['total_repos']}
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              Total Forks of your Repositories
-            </TableCell>
-            <TableCell>
-              {this.props.stats['forks']}
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              Total Stars on your repositories
-            </TableCell>
-            <TableCell>
-              {this.props.stats['stars']}
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              Total Pull Requests on your repositories
-            </TableCell>
-            <TableCell>
-              {this.props.stats['prs']}
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              Total watchers of your repositories
-            </TableCell>
-            <TableCell>
-              {this.props.stats['watchers']}
-            </TableCell>
-          </TableRow>
-
-
-        </TableBody>
-      </Table>
+  <Table columns={this.state.columns} dataSource={this.state.data} pagination={false}  />
         )
     }
 }
+
+
 
 export default StatsTable

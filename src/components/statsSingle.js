@@ -3,7 +3,7 @@ import { Query } from "react-apollo";
 import { statsQuery } from "../graphqlQueries"
 import { collectStats } from "../processData"
 import StatsTable from './statsTable'
-import Card, { CardHeader } from "@kiwicom/orbit-components/lib/Card";
+import {Card}from "antd";
 
 class StatsSingle extends Component {
 
@@ -23,8 +23,7 @@ class StatsSingle extends Component {
               console.log(stats, null, '\t')
               return (
                 // Stats Card  
-                <Card>
-                  <CardHeader title={`Github Score for ${stats.name}`} />
+                <Card title={`Github Score for ${stats.name}`} bordered={false} style={{ width: 300 }}>
                   <StatsTable stats={stats} />
                 </Card>
               )
