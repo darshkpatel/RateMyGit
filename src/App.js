@@ -20,7 +20,7 @@ function App() {
   return (
 <ApolloProvider client={client}>
     <Header />
-    <ProfileTextbox htmlClass="Body"/>
+    <ProfileTextbox htmlClass="fullHeight"/>
 </ApolloProvider>
   );
 }
