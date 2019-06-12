@@ -3,8 +3,7 @@ import { Query } from "react-apollo";
 import { statsQuery } from "../graphqlQueries"
 import { collectStats } from "../processData"
 import StatsTable from './statsTable'
-import {Card}from "antd";
-import { stat } from 'fs';
+import {Card, Statistic, Rate, Row, Col}from "antd";
 
 class StatsSingle extends Component {
 
@@ -27,7 +26,14 @@ class StatsSingle extends Component {
               return (
                 // Stats Card  
                 
-                <Card title={stats.name!=null?`Github Score for ${stats.name} ( ${this.props.username} )`:`Github Score for ${this.props.username}`} bordered={true}>
+                <Card bordered={true}>
+                  <Row>
+                  <Col>
+                  <Statistic title={stats.name!=null?`Github Score for ${stats.name} ( ${this.props.username} )`:`Github Score for ${this.props.username}`}
+                             value={stats.score} />
+                  </Col>
+
+                   </Row>
                   <StatsTable stats={stats} />
                 </Card>
               )

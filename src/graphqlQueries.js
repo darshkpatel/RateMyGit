@@ -39,7 +39,13 @@ url,
 login,
 createdAt,
 followers{totalCount},
-repositories(first:100 ){
+
+contributionsCollection{
+  hasAnyContributions,
+  contributionCalendar{totalContributions}
+ }
+
+ repositories(first:100 ){
   totalCount,
     edges{
   node{

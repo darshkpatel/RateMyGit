@@ -49,6 +49,12 @@ constructor(props){
         metric: 'Total watchers of repositories',
         value:props.stats['watchers'] 
       },
+      {
+        key: '7',
+        metric: 'Contributions in the last year',
+        value:props.stats['contributions'] 
+      },
+
     ];
 
     this.state={columns:columns,data:data}
