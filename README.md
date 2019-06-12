@@ -19,5 +19,27 @@
 </p>
 
 #
-### Scores github profiles based on public stats 
-### [https://darshkpatel.github.io/RateMyGit/](https://darshkpatel.github.io/RateMyGit/)
+
+## [Demo Link](https://darshkpatel.github.io/RateMyGit/)
+ A single page webapp built using [React](https://reactjs.org/) and [Ant Design](https://ant.design/). Uses the github's GraphQL API to fetch user information and generate a score.
+
+### Frameworks
+ * React
+ * Apollo GraphQL Client
+ * Ant Design Components
+ 
+### Run Locally
+```
+git clone https://github.com/darshkpatel/RateMyGit
+cd RateMyGit
+npm install
+npm run
+```
+
+### Contributing 
+Feel free to open an issue or send a PR for a new feature
+
+### License
+[MIT](https://github.com/darshkpatel/RateMyGit/blob/master/LICENSE.md) Copyright (c) 2019 Darsh Patel
+
+
