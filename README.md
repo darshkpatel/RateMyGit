@@ -36,6 +36,12 @@ npm install
 npm run
 ```
 
+### To Do
+* Write Proper Tests
+* UI Fixes
+* Buttons to share score on social media
+* Show more stats such as most used language
+
 ### Contributing 
 Feel free to open an issue or send a PR for a new feature
 
