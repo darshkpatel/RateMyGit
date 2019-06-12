@@ -15,7 +15,7 @@ export const FormTitle = styled.h1`
 
 export const Wrapper = styled.section`
   padding: 4em;
-  background: blueviolet;
+  background: black;
 `;
 
 export const Form = styled.form`
