@@ -4,6 +4,7 @@ import { statsQuery } from "../graphqlQueries"
 import { collectStats } from "../processData"
 import StatsTable from './statsTable'
 import {Card}from "antd";
+import { stat } from 'fs';
 
 class StatsSingle extends Component {
 
@@ -25,7 +26,8 @@ class StatsSingle extends Component {
               const stats = collectStats(data)// Collect stats form all repos to a dictionary
               return (
                 // Stats Card  
-                <Card title={`Github Score for ${stats.name} ( ${this.props.username} )`} bordered={true}>
+                
+                <Card title={stats.name!=null?`Github Score for ${stats.name} ( ${this.props.username} )`:`Github Score for ${this.props.username}`} bordered={true}>
                   <StatsTable stats={stats} />
                 </Card>
               )
