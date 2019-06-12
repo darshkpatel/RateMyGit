@@ -20,7 +20,11 @@
 
 #
 
-## [Demo Link](https://darshkpatel.github.io/RateMyGit/)
+
+<a href="https://darshkpatel.github.io/RateMyGit/">
+<h1 align="center"> Check it out here </h1>
+</a>
+
  A single page webapp built using [React](https://reactjs.org/) and [Ant Design](https://ant.design/). Uses the github's GraphQL API to fetch user information and generate a score.
 
 ### Frameworks
