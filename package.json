@@ -1,8 +1,8 @@
 {
-  "name": "ratemygithub",
+  "name": "RateMyGit",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://darshkpatel.github.io/RateMyGithub/",
+  "homepage": "https://darshkpatel.github.io/RateMyGit/",
   "dependencies": {
     "antd": "^3.19.3",
     "apollo-boost": "^0.4.0",

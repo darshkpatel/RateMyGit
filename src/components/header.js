@@ -7,7 +7,7 @@ class Header extends Component{
     return(
       <Wrapper>
         <Title>
-          Rate My Github
+          RateMyGit
         </Title>
       </Wrapper>
     );
