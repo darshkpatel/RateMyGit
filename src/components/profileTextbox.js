@@ -9,17 +9,13 @@ class ProfileTextbox extends Component {
     
     
     this.state = {
-      textbox_username:"",
       showElements: this.displayElements,
-      search_username:""
     };
     
     this.displayElements = [];
     this.onSubmit = this.onSubmit.bind(this);
   }
-  onChange = event => {
-    this.setState({ textbox_username: event.target.value });
-  };
+ 
   
   onSubmit = input_text => {
     const usernameRegex = /^([a-z\d]+-)*[a-z\d]+$/ig; //Regex for valid github username
