@@ -3,7 +3,7 @@ import { Query } from "react-apollo";
 import { statsQuery } from "../graphqlQueries"
 import { collectStats } from "../processData"
 import StatsTable from './statsTable'
-import {Card, Statistic, Rate, Row, Col}from "antd";
+import {Card, Statistic}from "antd";
 
 class StatsSingle extends Component {
 
