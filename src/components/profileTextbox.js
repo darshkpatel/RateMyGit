@@ -2,16 +2,11 @@ import React, {Component} from 'react';
 import StatsSingle from './statsSingle';
 import { Input,Button } from "antd";
 import { Row, Col, message, notification } from 'antd';
+import {connect} from 'react-redux';
+import {addCard} from '../redux/actions/index'
 class ProfileTextbox extends Component {
   constructor(props){
     super(props);
-    
-    
-    this.state = {
-      showElements: this.displayElements,
-    };
-    
-    this.displayElements = [];
     this.onSubmit = this.onSubmit.bind(this);
   }
  
@@ -19,30 +14,29 @@ class ProfileTextbox extends Component {
   onSubmit = input_text => {
     const usernameRegex = /^([a-z\d]+-)*[a-z\d]+$/ig; //Regex for valid github username
     
-    //Removes Existing 'Invalid Username' error if present 
-    this.displayElements = this.displayElements.filter((obj)=>obj.key!=="invalid_err")
-    
     //Check if github username is valid 
     if(usernameRegex.test(input_text)){
 
       //Pushes Stats Component to display if user isn't already displayed
-      if(!this.displayElements.some((obj)=>obj.key===input_text)){
-      this.displayElements.push(<Col xs={20} md={7} lg={7} xl={7} key={input_text} style={{paddingBottom:20}}>
-          <StatsSingle username = {input_text} />
-        </Col>)
-      }
+      if(!this.props.cards.some((obj)=>obj.username===input_text)){
+      let newCard = <Col xs={20} md={7} lg={7} xl={7} key={input_text} style={{paddingBottom:20}}>      <StatsSingle username = {input_text} />       </Col>
+      this.props.addCard(newCard,input_text)
     }
+      
+  }
 
     else{ // If Username is invalid
       message.warning(`${input_text} is not a valid github username` );
     }
-    this.setState({showElements:this.displayElements})
-    // eslint-disable-next-line
-    if(typeof(this.displayElements)!==undefined && this.displayElements.length==1){
-      notification['info']({
-        message: 'Search another username to compare',
+
+    //Show notification to search another username if it's the first search
+    if(this.props.cards.length===1){
+        notification.info({
+        message: 'Search for another username to compare scores',
       });
     }
+
+
   };
 
     render() {
@@ -64,12 +58,18 @@ class ProfileTextbox extends Component {
       </Row>
 
       <Row type="flex" justify="center" gutter={24}>
-        {this.displayElements}
+
+        {/* Returns an array of JSX objects to display */}
+        {this.props.cards.reduce((acc,obj)=>[...acc,obj.card],[])}
+      
       </Row>
 
   </div>
       );
     }
   }
+  const mapStateToProps = state => ({
+    cards: state.CardsReducer.cards
+  });
 
-  export default ProfileTextbox;
+  export default connect(mapStateToProps, {addCard})(ProfileTextbox);

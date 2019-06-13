@@ -3,8 +3,9 @@ import { Query } from "react-apollo";
 import { statsQuery } from "../graphqlQueries"
 import { collectStats } from "../processData"
 import StatsTable from './statsTable'
-import {Card, Statistic}from "antd";
-
+import {Card, Statistic, Button,Row,Col, notification}from "antd";
+import {connect} from 'react-redux';
+import {deleteCard} from '../redux/actions/index'
 class StatsSingle extends Component {
 
   render() {
@@ -22,7 +23,17 @@ class StatsSingle extends Component {
             } // Loader
             if (error) {
                console.log(JSON.stringify(error));
-               return <Card title={`Username "${this.props.username}" Not Found`} bordered={true}>Please check if {this.props.username} is a valid github username </Card>
+               this.props.cards[this.props.cards.findIndex((obj)=>obj.username===this.props.username)].error=true
+               console.log(this.props.cards[this.props.cards.findIndex((obj)=>obj.username===this.props.username)], "Error Set True")
+               return( 
+               <Card title={`Username "${this.props.username}" Not Found`} bordered={true}>
+                 Please check if {this.props.username} is a valid github username
+                 <br />
+                 <Button icon="delete" style={{color:"red", marginTop:10}} onClick={(event)=>{this.props.deleteCard(this.props.username)}}>
+                  Remove
+                  </Button>
+                </Card>
+                    )
               } //Display Error
             else {
               const stats = collectStats(data)// Collect stats form all repos to a dictionary
@@ -34,6 +45,18 @@ class StatsSingle extends Component {
                       extra={<Statistic value={stats.score} />}>
                 
                   <StatsTable stats={stats} />
+                  <Row type="flex" justify="space-between">
+                  <Col>
+                  <Button icon="delete" style={{color:"red", marginTop:10}} onClick={(event)=>{this.props.deleteCard(this.props.username)}}>
+                  Remove
+                  </Button>
+                  </Col>
+                  <Col>
+                  <Button type="primary" style={{marginTop:10}} onClick={(event)=>{notification.info({message: 'Detailed Profile Statistics Coming Soon'});}}>
+                  Show Stats
+                  </Button>
+                  </Col>
+                  </Row>
                 </Card>
               )
             }
@@ -51,5 +74,8 @@ class StatsSingle extends Component {
 
 
 }
+const mapStateToProps = state => ({
+  cards: state.CardsReducer.cards
+});
 
-export default StatsSingle;
+export default connect(mapStateToProps, {deleteCard})(StatsSingle);
