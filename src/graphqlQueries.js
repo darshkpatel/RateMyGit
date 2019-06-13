@@ -54,16 +54,10 @@ contributionsCollection{
     watchers{totalCount},
     pullRequests{totalCount},
     stargazers{totalCount},
-    languages(first:1) {
-      edges {
-        node {
-          name
-           }
-         }
-       }
-     }
+        }
       }
- }
+    }
+  }
 }
 rateLimit {
 limit
