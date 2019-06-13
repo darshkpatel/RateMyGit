@@ -4,8 +4,13 @@
     height: 100%;
 }
 
+.bodyStyles{
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
 .headerStyle{
-    padding: 4em;
+    padding: 10px;
     background: black;
     display: flex;
     flex-flow: column;

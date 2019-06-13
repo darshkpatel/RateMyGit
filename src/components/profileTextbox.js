@@ -27,7 +27,7 @@ class ProfileTextbox extends Component {
 
       //Pushes Stats Component to display if user isn't already displayed
       if(!this.displayElements.some((obj)=>obj.key===input_text)){
-      this.displayElements.push(<Col xs={20} md={7} lg={7} xl={7} key={input_text}>
+      this.displayElements.push(<Col xs={20} md={7} lg={7} xl={7} key={input_text} style={{paddingBottom:20}}>
           <StatsSingle username = {input_text} />
         </Col>)
       }
@@ -57,7 +57,7 @@ class ProfileTextbox extends Component {
       </Col>
       </Row>
 
-      <Row type="flex" justify="center" gutter={24} style={{paddingBottom:20}}>
+      <Row type="flex" justify="center" gutter={24}>
         {this.displayElements}
       </Row>
 
