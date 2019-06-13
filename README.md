@@ -28,6 +28,7 @@ A single page webapp built using [React](https://reactjs.org/) and [Ant Design](
 ### Frameworks
  * React
  * Apollo GraphQL Client
+ * React Redux
  * Ant Design Components
  
 ### Run Locally
@@ -43,6 +44,8 @@ npm run
 * UI Fixes
 * Buttons to share score on social media
 * Show more stats such as most used language
+* Add star on github button 
+* Make Compare Profiles more intuitive
 
 ### Contributing 
 Feel free to open an issue or send a PR for a new feature
