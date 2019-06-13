@@ -65,5 +65,5 @@ cost
 remaining
 resetAt
 }
-}
+
 `
