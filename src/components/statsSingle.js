@@ -23,10 +23,7 @@ class StatsSingle extends Component {
             if (error) {
                console.log(JSON.stringify(error));
                return <Card title={`Username "${this.props.username}" Not Found`} bordered={true}>Please check if {this.props.username} is a valid github username </Card>
-               
-            
-            
-            } //Display Error
+              } //Display Error
             else {
               const stats = collectStats(data)// Collect stats form all repos to a dictionary
               return (

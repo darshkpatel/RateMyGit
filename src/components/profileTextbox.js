@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import StatsSingle from './statsSingle';
 import { Input,Button } from "antd";
-import { Row, Col, message } from 'antd';
+import { Row, Col, message, notification } from 'antd';
 class ProfileTextbox extends Component {
   constructor(props){
     super(props);
@@ -37,6 +37,12 @@ class ProfileTextbox extends Component {
       message.warning(`${input_text} is not a valid github username` );
     }
     this.setState({showElements:this.displayElements})
+    // eslint-disable-next-line
+    if(typeof(this.displayElements)!==undefined && this.displayElements.length==1){
+      notification['info']({
+        message: 'Search another username to compare',
+      });
+    }
   };
 
     render() {
