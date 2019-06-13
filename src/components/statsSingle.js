@@ -26,7 +26,7 @@ class StatsSingle extends Component {
               return (
                 // Stats Card  
                 
-                <Card title={stats.name!=null?`Github Score for ${stats.name} ( ${this.props.username} )`:`Github Score for ${this.props.username}`}
+                <Card title={stats.name!=null?`Github Score for ${stats.name}`:`Github Score for ${this.props.username}`}
                       bordered={true}
                       extra={<Statistic value={stats.score} />}>
                 
