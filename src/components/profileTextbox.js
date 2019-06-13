@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import StatsSingle from './statsSingle';
 import { Input,Button } from "antd";
 import { Row, Col, message } from 'antd';
-
 class ProfileTextbox extends Component {
   constructor(props){
     super(props);
@@ -27,20 +26,15 @@ class ProfileTextbox extends Component {
     if(usernameRegex.test(input_text)){
 
       //Pushes Stats Component to display if user isn't already displayed
-      if(!this.displayElements.some((obj)=>obj.key===input_text))
-      this.displayElements.push(<Col xs={20} md={7} lg={7} xl={7} key={input_text}><StatsSingle username = {input_text} /></Col>)
+      if(!this.displayElements.some((obj)=>obj.key===input_text)){
+      this.displayElements.push(<Col xs={20} md={7} lg={7} xl={7} key={input_text}>
+          <StatsSingle username = {input_text} />
+        </Col>)
+      }
     }
 
     else{ // If Username is invalid
-    
-      //Pushes Error Component
-      // this.displayElements.push(
-      // <Col span={8} key="invalid_err">
-      // <p>Username {input_text} is not a valid github username </p>
-      // </Col>
-      // )
       message.warning(`${input_text} is not a valid github username` );
-      
     }
     this.setState({showElements:this.displayElements})
   };
