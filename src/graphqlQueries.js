@@ -58,12 +58,12 @@ contributionsCollection{
       }
     }
   }
-}
+
 rateLimit {
 limit
 cost
 remaining
 resetAt
 }
-
+}
 `
