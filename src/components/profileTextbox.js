@@ -21,21 +21,20 @@ class ProfileTextbox extends Component {
       if(!this.props.cards.some((obj)=>obj.username===input_text)){
       let newCard = <Col xs={20} md={7} lg={7} xl={7} key={input_text} style={{paddingBottom:20}}>      <StatsSingle username = {input_text} />       </Col>
       this.props.addCard(newCard,input_text)
-    }
+      }
+    
+      //Show notification to search another username if it's the first search
+       if(this.props.cards.length===0){
+          notification.info({
+          message: 'Search for another username to compare scores',
+        });
+      }
       
   }
 
     else{ // If Username is invalid
       message.warning(`${input_text} is not a valid github username` );
     }
-
-    //Show notification to search another username if it's the first search
-    if(this.props.cards.length===1){
-        notification.info({
-        message: 'Search for another username to compare scores',
-      });
-    }
-
 
   };
 
