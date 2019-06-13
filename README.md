@@ -26,12 +26,14 @@
 A single page webapp built using [React](https://reactjs.org/) and [Ant Design](https://ant.design/). Uses the github's GraphQL API to fetch user information and generate a score.
 
 ### Frameworks
+
  * React
  * Apollo GraphQL Client
  * React Redux
  * Ant Design Components
  
 ### Run Locally
+
 ```
 git clone https://github.com/darshkpatel/RateMyGit
 cd RateMyGit
@@ -40,17 +42,18 @@ npm run
 ```
 
 ### To Do
+
 * Write Proper Tests
 * UI Fixes
 * Buttons to share score on social media
 * Show more stats such as most used language
-* Add star on github button 
-* Make Compare Profiles more intuitive
 
 ### Contributing 
+
 Feel free to open an issue or send a PR for a new feature
 
 ### License
+
 [MIT](https://github.com/darshkpatel/RateMyGit/blob/master/LICENSE.md) Copyright (c) 2019 Darsh Patel
 
 
