@@ -29,7 +29,7 @@ class StatsSingle extends Component {
                <Card title={`Username "${this.props.username}" Not Found`} bordered={true}>
                  Please check if {this.props.username} is a valid github username
                  <br />
-                 <Button icon="delete" style={{color:"red", marginTop:10}} onClick={(event)=>{this.props.deleteCard(this.props.username)}}>
+                 <Button icon="delete" style={{color:"red", marginTop:10}} block onClick={(event)=>{this.props.deleteCard(this.props.username)}}>
                   Remove
                   </Button>
                 </Card>
