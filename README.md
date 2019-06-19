@@ -38,6 +38,7 @@ A single page webapp built using [React](https://reactjs.org/) and [Ant Design](
 git clone https://github.com/darshkpatel/RateMyGit
 cd RateMyGit
 npm install
+echo "REACT_APP_GITHUB_TOKEN=[YOUR GITHUB TOKEN]"> .env
 npm run
 ```
 
