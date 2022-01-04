@@ -52,6 +52,6 @@ Feel free to open an issue or send a PR for a new feature
 
 ### License
 
-[MIT](https://github.com/darshkpatel/RateMyGit/blob/master/LICENSE.md) Copyright (c) 2021 Darsh Patel
+[MIT](https://github.com/darshkpatel/RateMyGit/blob/master/LICENSE.md) Copyright (c) 2022 Darsh Patel
 
 
